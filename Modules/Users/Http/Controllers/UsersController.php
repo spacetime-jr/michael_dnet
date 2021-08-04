@@ -455,18 +455,21 @@ class UsersController extends Controller
 
         $users = User::select('users.fullname', 'users.username', 'users.id')
                             ->join('role_users', 'users.id', '=', 'role_users.user_id')
-                            ->whereNotIn('role_users.role_id', [env('SUPERADMIN_ROLE_ID','1')])
+                            ->where('role_users.role_id', '<>',env('SUPERADMIN_ROLE_ID','1'))
                             ->where('status', '<>', User::DELETED);
                             
         if( !empty($search) )
         {
-            $users = $users->where('users.username', 'LIKE', "%{$search}%")
-                            ->orWhere('users.fullname', 'LIKE', "%{$search}%")
-                            ->orWhere('users.email', 'LIKE', "%{$search}%");
+            $users = $users->where(function ($query) use ($search) {
+                $query->where('users.username', 'LIKE', "%{$search}%")
+                ->orWhere('users.fullname', 'LIKE', "%{$search}%")
+                ->orWhere('users.email', 'LIKE', "%{$search}%");
+            });
         }
 
         $response['total'] = $users->count();
         $data = array();
+
         if($users->count() > 0)
         {
             foreach ($users->get() as $user) 

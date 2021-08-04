@@ -173,7 +173,11 @@
 					</a>
 
 					<ul class="dropdown-menu dropdown-menu-right">
+						@php
+						/*
 						<li><a href="{{route('users.edit', \Auth::user()->id)}}"><i class="icon-cog5"></i> Account settings</a></li>
+						*/
+						@endphp
 						<li><a href="<?php echo route('logout') ?>"><i class="icon-switch2"></i> Logout</a></li>
 					</ul>
 				</li>

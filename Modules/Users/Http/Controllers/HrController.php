@@ -63,7 +63,7 @@ class HrController extends Controller
      */
     public function store(Request $request)
     {
-        if (\Sentinel::getUser()->hasAccess('user.create')) {
+        if (\Sentinel::getUser()->hasAccess('hr.user.create')) {
             $rules = [
                 'fullname' => 'required|min:3',
                 'email' => 'required|email|unique:users',
@@ -121,7 +121,7 @@ class HrController extends Controller
      */
     public function show($id)
     {
-        if (\Sentinel::getUser()->hasAccess('user.show')) {
+        if (\Sentinel::getUser()->hasAccess('hr.user.show')) {
             $_SESSION['menu'] = 'hr';
             $user = User::find($id);
 

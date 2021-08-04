@@ -40,12 +40,11 @@ class AbsensiController extends Controller
             if(empty($checkedUser))
                 $canCheckin = true;
             else{
+                $absensi = $checkedUser;
                 // CHeck if user already checkedout on current date
                 $checkedUser = Absensi::where('user_id','=',$currentUser->id)
                 ->whereRaw('DATE(checkout) = ?',[$currentDate->format('Y-m-d')])
                 ->first();
-
-                $absensi = $checkedUser;
                 
                 if(empty($checkedUser))
                     $canCheckout = true;
