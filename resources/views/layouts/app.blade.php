@@ -252,6 +252,12 @@
 										<a href="{{route('ijin.index')}}"><i class="icon-calendar3"></i> <span>Pengajuan Ijin</span></a>
 									</li>
 								@endif
+					
+								@if(\Sentinel::getUser()->hasAccess('report.absensi'))
+									<li class="{{(isset($_SESSION['menu']) ? ($_SESSION['menu'] == "report.absen" ? "active" : "") : "")}}">
+										<a href="{{route('report.absensi')}}"><i class="icon-calendar2"></i> <span>Report Absensi</span></a>
+									</li>
+								@endif
 								@if(\Sentinel::getUser()->hasAccess('permission.list'))
 									<li class="{{(isset($_SESSION['menu']) ? ($_SESSION['menu'] == "permission" ? "active" : "") : "")}}">
 										<a href="{{route('permission.index')}}"><i class="icon-lock5"></i> <span>Permission</span></a>

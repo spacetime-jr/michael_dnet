@@ -95,6 +95,16 @@ class UserSentinel extends \Cartalyst\Sentinel\Users\EloquentUser
         return $this->hasMany('\App\Media', 'user_id');
     }
 
+    public function ijin()
+    {
+        return $this->hasMany('\Modules\Users\Entities\Ijin', 'user_id');
+    }
+
+    public function absensi()
+    {
+        return $this->hasMany('\Modules\Users\Entities\Absensi', 'user_id');
+    }
+
 
     public function getLastActivityAttribute($date)
     {

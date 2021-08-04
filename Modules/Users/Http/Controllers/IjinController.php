@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Point;
 use Modules\Users\Entities\Ijin;
+use Modules\Users\Entities\Absensi;
 
 class IjinController extends Controller
 {
@@ -123,6 +124,24 @@ class IjinController extends Controller
                 $ijin->approved_by = \Sentinel::getUser()->id;
                 $ijin->approved_at = Carbon::now()->format('Y-m-d H:i:s');
                 $ijin->save();    
+
+                // Add absensi and mark it accordingly with status equal to ijin
+                $dates = getWorkingDaysDate($ijinStartDate, $ijinEndDate);
+                $counter = 0;
+                
+                foreach($dates as $date){
+                    $absensi = new Absensi();
+                    $absensi->user_id = $data['user_id'];
+                    $absensi->checkin = $date .' 00:00:00';
+                    $absensi->checkout = $date .' 00:00:00';
+                    if($cuti > 0){
+                        $absensi->status = $data['type'];
+                        $cuti--;
+                    }else{
+                        $absensi->status = Ijin::CUTIGAJI;
+                    }
+                    $absensi->save();
+                }
     
                 \DB::commit();
     

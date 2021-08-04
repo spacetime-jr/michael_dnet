@@ -165,3 +165,24 @@ function getWorkingDays($startDate, $endDate){
     }
     return $days;
 }
+
+function getWorkingDaysDate($startDate, $endDate){
+    // Process date to count workdays and 
+    $workingDays = [1, 2, 3, 4, 5]; // Monday - Friday
+    $holidayDays = []; // to-be implemented
+
+    $from = new \DateTime($startDate);
+    $to = new \DateTime($endDate);
+    $to->modify('+1 day');
+    $interval = new \DateInterval('P1D');
+    $periods = new \DatePeriod($from, $interval, $to);
+
+    $array = [];
+    foreach ($periods as $period) {
+        if (!in_array($period->format('N'), $workingDays)) continue;
+        if (in_array($period->format('Y-m-d'), $holidayDays)) continue;
+        if (in_array($period->format('*-m-d'), $holidayDays)) continue;
+        $array[] = $period->format('Y-m-d');
+    }
+    return $array;
+}

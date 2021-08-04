@@ -262,7 +262,7 @@ if (!isset($method)) {
                         <div class="col-lg-10">
                             <label class="checkbox-inline">
                                 <input type="checkbox" name="reportijin" value="true" <?php if($role->hasAccess("report.ijin")) { ?> checked <?php } ?>>
-                                Laporan Ijin/Cuti
+                                Laporan Ijin/Cuti (TBA)
                             </label>
                         </div>
                     </td>
@@ -270,7 +270,7 @@ if (!isset($method)) {
                         <div class="col-lg-10">
                             <label class="checkbox-inline">
                                 <input type="checkbox" name="reportgaji" value="true" <?php if($role->hasAccess("report.gaji")) { ?> checked <?php } ?>>
-                                Laporan Gaji
+                                Laporan Gaji (TBA)
                             </label>
                         </div>
                     </td>
@@ -283,7 +283,7 @@ if (!isset($method)) {
                         <div class="col-lg-10">
                             <label class="checkbox-inline">
                                 <input type="checkbox" name="pengajuanijin" value="true" <?php if($role->hasAccess("ijin.pengajuan")) { ?> checked <?php } ?>>
-                                Pengajuan Ijin (To-be Implemented)
+                                Pengajuan Ijin (TBA)
                             </label>
                         </div>
                     </td>

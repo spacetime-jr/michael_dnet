@@ -141,6 +141,16 @@ class User extends Authenticatable
         return null;
     }
 
+    public function ijin()
+    {
+        return $this->hasMany('\Modules\Users\Entities\Ijin', 'user_id');
+    }
+
+    public function absensi()
+    {
+        return $this->hasMany('\Modules\Users\Entities\Absensi', 'user_id');
+    }
+
     /**
      * The Eloquent roles model name.
      *

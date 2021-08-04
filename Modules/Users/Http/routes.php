@@ -30,6 +30,8 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
         Route::get('ijin/ajaxListIjin', 'IjinController@ajaxListIjin')->name('ijin.listIjin');
         Route::get('absensi/checkout', 'AbsensiController@checkout')->name('absensi.checkout');
         
+        // Report
+        Route::get('report/absensi', 'ReportController@reportAbsensi')->name('report.absensi');
     
         Route::resource('users', 'UsersController');
         Route::resource('hr', 'HRController');
