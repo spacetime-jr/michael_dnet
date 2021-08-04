@@ -1,0 +1,2792 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "This is a sample description for current API",
+        "termsOfService": "",
+        "license": {
+            "name": "Private License"
+        },
+        "version": "1.0.0"
+    },
+    "basePath": "/v1",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/pos/cashierTransfer": {
+            "post": {
+                "tags": [
+                    "pos"
+                ],
+                "summary": "Transfer Saldo for cashier only",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "amount",
+                        "in": "formData",
+                        "description": "Amount to transfer",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "User ID to transfer to (it has to be in the same school)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "notes",
+                        "in": "formData",
+                        "description": "notes",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transfer Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/getBalanceHistory": {
+            "post": {
+                "tags": [
+                    "balance"
+                ],
+                "summary": "get user's Balance History ",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "formData",
+                        "description": "Offset to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "formData",
+                        "description": "Limit to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customer Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/general/getProvince": {
+            "post": {
+                "tags": [
+                    "general"
+                ],
+                "summary": "Get all province",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/general/getCity": {
+            "post": {
+                "tags": [
+                    "general"
+                ],
+                "summary": "Get all city or add province_id param to get all city in the selected province",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "province_id",
+                        "in": "formData",
+                        "description": "province id to filter the city",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/getPointHistory": {
+            "post": {
+                "tags": [
+                    "point"
+                ],
+                "summary": "get user's Point History ",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "formData",
+                        "description": "Offset to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "formData",
+                        "description": "Limit to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customer Point Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/pos/transactions/receiveTransaction": {
+            "post": {
+                "tags": [
+                    "pos"
+                ],
+                "summary": "Mark the transaction status to received",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "transaction_id",
+                        "in": "formData",
+                        "description": "Product transaction id (not the trx_id object)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    },
+                    "505": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/pos/transactions/finishTransaction": {
+            "post": {
+                "tags": [
+                    "pos"
+                ],
+                "summary": "Mark the transaction status to completed when user pick up the goods",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "transaction_id",
+                        "in": "formData",
+                        "description": "Product transaction id (not the trx_id object)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    },
+                    "505": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/post/getPosts": {
+            "post": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Get all post by postType",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "postType",
+                        "in": "formData",
+                        "description": "Post type (eg:news,promotion)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/post/getPost": {
+            "post": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Get a post by its ID",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "description": "id Post",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/transactions/addNewProductTransaction": {
+            "post": {
+                "tags": [
+                    "transactions"
+                ],
+                "summary": "Add new Transactions",
+                "description": "will return code 200 if success, 500 on error, 505 if there is difference in product price and availability, if you get error 505, then refresh your cart's product to get the new price and availability",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "address_id",
+                        "in": "formData",
+                        "description": "User's address ID, if false, then it will use the school's address",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "products",
+                        "in": "formData",
+                        "description": "json encode of array of object [{product_vendor_id:xxx, qty:yyyy, price:zzzz, note:xyzxyzyxyzyx}, {product_vendor_id:xxx, qty:yyyy, price:zzzz, note:xyzxyzyxyzyx}]",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "note",
+                        "in": "formData",
+                        "description": "Order Note",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "shipping_insurance",
+                        "in": "formData",
+                        "description": "Insurance enabled? (true/false, default is false)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "shipping_price",
+                        "in": "formData",
+                        "description": "Shipping price - from raja ongkir",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "shipping_provider",
+                        "in": "formData",
+                        "description": "Shipping provider option (local_courier / others from raja ongkir, like jne / tiki)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "shipping_type",
+                        "in": "formData",
+                        "description": "Shipping type option (local_courier / others from raja ongkir, like oke / reg)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    },
+                    "505": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/transactions/getAllTransactions": {
+            "post": {
+                "tags": [
+                    "transactions"
+                ],
+                "summary": "Get All user's Transactions",
+                "description": "You can user additional parameter, such as nisn to filter the result when current user is cashier",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "search",
+                        "in": "formData",
+                        "description": "NISN or fullname or trx_id to search (only for cashier)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "status",
+                        "in": "formData",
+                        "description": "Status to query ('pending', 'in process', 'processed', 'shipping process', 'received', 'cancelled', 'completed')",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "formData",
+                        "description": "Start date purchasing (Y-m-d)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "formData",
+                        "description": "End date purchasing (Y-m-d)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "formData",
+                        "description": "Offset to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "formData",
+                        "description": "Limit to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    },
+                    "505": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/transactions/getTransactionDetail": {
+            "post": {
+                "tags": [
+                    "transactions"
+                ],
+                "summary": "Get Transaction detail by ID",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "transaction_id",
+                        "in": "formData",
+                        "description": "Transaction ID to find",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    },
+                    "505": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/transactions/getShippingHistory": {
+            "post": {
+                "tags": [
+                    "transactions"
+                ],
+                "summary": "Get Transaction's Shipping history",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "transaction_id",
+                        "in": "formData",
+                        "description": "Transaction ID to find",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    },
+                    "505": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/getAllProduct": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Get all Product",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "search",
+                        "in": "formData",
+                        "description": "Search query (product name)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "formData",
+                        "description": "Category to search the product",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "brand_id",
+                        "in": "formData",
+                        "description": "Brand to search the product",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "vendor_id",
+                        "in": "formData",
+                        "description": "Vendor ID to search the product",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "formData",
+                        "description": "field name of order to order the product [name, price, created_at]",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "order_type",
+                        "in": "formData",
+                        "description": "type of order to order the product [asc, desc]",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "formData",
+                        "description": "Limit to query (take)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "formData",
+                        "description": "Offset query (skip)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/getProductDetail": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Get Product detail by id",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "formData",
+                        "description": "Product's ID, if you use this, you have to supply the vendor id too, the product_vendor_id will not be required",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "vendor_id",
+                        "in": "formData",
+                        "description": "vendor's ID, if you use this, required if you choose to use product_id instead of product_vendor_id",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "product_vendor_id",
+                        "in": "formData",
+                        "description": "Product's vendor ID, if you use getAllProduct, search for product_vendor_id object, product_id will not be required, and ignored",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/getAllCategoryProduct": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Get all Product's category",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/getCategoryDetail": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Get Product's category by ID",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "formData",
+                        "description": "Category to search the product",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/getAllBrands": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Get all Product's brand",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "search",
+                        "in": "formData",
+                        "description": "Search query (brand name)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "formData",
+                        "description": "field name of order to order the product [name, sell_price, created_at]",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "order_type",
+                        "in": "formData",
+                        "description": "type of order to order the product [asc, desc]",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "formData",
+                        "description": "Limit to query (take)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "formData",
+                        "description": "Offset query (skip)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/addProductRatingAndReviews": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Add Product's Rating and Review",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "formData",
+                        "description": "Product's ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "user_type",
+                        "in": "formData",
+                        "description": "post the rating and review as user or vendor [vendor / user] user will be used as default",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "rating",
+                        "in": "formData",
+                        "description": "Product's rating [0-5]",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "review",
+                        "in": "formData",
+                        "description": "Product's review, if not present, will be set as empty",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/getAllProductRatingAndReviews": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Get all Product's Rating and Review",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "formData",
+                        "description": "Product's ID",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/addProductDiscussions": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Add Product's Discussion",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "formData",
+                        "description": "Product's ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "user_type",
+                        "in": "formData",
+                        "description": "post the discussion as user or vendor [vendor / user] user will be used as default",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "message",
+                        "in": "formData",
+                        "description": "User's message",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/products/getAllProductDiscussions": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Get all Product's Discussion",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "formData",
+                        "description": "Product's ID",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/sekolah/getById": {
+            "post": {
+                "tags": [
+                    "sekolah"
+                ],
+                "summary": "Get Sekolah By ID",
+                "description": "Get Sekolah Information by ID - get the sekolah id from login API",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "sekolah_id",
+                        "in": "formData",
+                        "description": "Sekolah ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "sekolah Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/slideshow/list": {
+            "post": {
+                "tags": [
+                    "slideshow"
+                ],
+                "summary": "Get all Slideshow",
+                "description": "For Getting Slideshow, use this API",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slideshow Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/topup/credit": {
+            "post": {
+                "tags": [
+                    "topup"
+                ],
+                "summary": "Doing top up credit",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "payment_method",
+                        "in": "formData",
+                        "description": "Payment method (bank_transfer)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi",
+                        "enum": [
+                            "bank_transfer"
+                        ]
+                    },
+                    {
+                        "name": "bank_code",
+                        "in": "formData",
+                        "description": "Bank code where user to top up (bca, bni or mandiri)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "amount",
+                        "in": "formData",
+                        "description": "Amount of real top up. Unique code will return on response",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/topup/confirmation": {
+            "post": {
+                "tags": [
+                    "topup"
+                ],
+                "summary": "Top up confirmation",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "transaction_id",
+                        "in": "formData",
+                        "description": "Top up transaction id",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/topup/history": {
+            "post": {
+                "tags": [
+                    "topup"
+                ],
+                "summary": "Get top up history",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "formData",
+                        "description": "Start date top up",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "formData",
+                        "description": "End date top up",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "formData",
+                        "description": "Offset to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "formData",
+                        "description": "Limit item to show per page",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customer Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/assignToken": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "assign token for user",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "formData",
+                        "description": "device / FCM token",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "formData",
+                        "description": "device type (eg: android or ios)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "app_version",
+                        "in": "formData",
+                        "description": "client's app version (eg: 1.0.0)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User data and token"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Login endpoint for user",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "login",
+                        "in": "formData",
+                        "description": "email / username to be validate for login",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "user password to be validate in backend for login",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "formData",
+                        "description": "device / FCM token",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "formData",
+                        "description": "device type (eg: android or ios)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "app_version",
+                        "in": "formData",
+                        "description": "client's app version (eg: 1.0.0)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "formData",
+                        "description": "Cashier's device ID (used only for cashier validity)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User data and token"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/logout": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Logout endpoint for user",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/get": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get user info based on access token",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/forgotPassword": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Reset password endpoint for user",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User's email",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success message"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/edit": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Edit Profile endpoint for user",
+                "description": "-",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "old_password",
+                        "in": "formData",
+                        "description": "old Password to verify",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "password to be validate for login",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "formData",
+                        "description": "password to be validate for login",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "fullname",
+                        "in": "formData",
+                        "description": "user's fullname",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User's email",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "phone_number",
+                        "in": "formData",
+                        "description": "user's phone number",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "profile_picture",
+                        "in": "formData",
+                        "description": "Profile picture",
+                        "required": false,
+                        "type": "file",
+                        "format": "string, profile_picture",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "address",
+                        "in": "formData",
+                        "description": "user's address",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/editPassword": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Edit Password endpoint for user",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "current_password",
+                        "in": "formData",
+                        "description": "User's current password",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "new_password",
+                        "in": "formData",
+                        "description": "User's new password",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "confirm_new_password",
+                        "in": "formData",
+                        "description": "User's confirm new password",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/editUserProfilePicture": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Upload Profile Picture for user",
+                "description": "-",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "profile_picture",
+                        "in": "formData",
+                        "description": "Profile picture",
+                        "required": false,
+                        "type": "file",
+                        "format": "string, profile_picture",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success message"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/addUserAddress": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Add User's Address",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Name of the address (office, home, etc)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "City",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "province",
+                        "in": "formData",
+                        "description": "Province",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "address",
+                        "in": "formData",
+                        "description": "Address",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "kabupaten",
+                        "in": "formData",
+                        "description": "Kabupaten",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "kecamatan",
+                        "in": "formData",
+                        "description": "Kecamatan",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "kelurahan",
+                        "in": "formData",
+                        "description": "Kelurahan",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "formData",
+                        "description": "Latitude",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "formData",
+                        "description": "Longitude",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/updateUserAddress": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Add User's Address",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "address_id",
+                        "in": "formData",
+                        "description": "Address ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Name of the address (office, home, etc)",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "City",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "province",
+                        "in": "formData",
+                        "description": "Province",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "address",
+                        "in": "formData",
+                        "description": "Address",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "kabupaten",
+                        "in": "formData",
+                        "description": "Kabupaten",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "kecamatan",
+                        "in": "formData",
+                        "description": "Kecamatan",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "kelurahan",
+                        "in": "formData",
+                        "description": "Kelurahan",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "formData",
+                        "description": "Latitude",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "formData",
+                        "description": "Longitude",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "status",
+                        "in": "formData",
+                        "description": "set address status (primary / active), only 1 primary address can exists, if you set current address as primary, then any other primary address will be changed to active. If you try to change a primary address to active, it will be rejected. Leave empty if you doesn't want to change the status",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/getAllUserAddress": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get all User's Address",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/deleteUserAddress": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete User's Address",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "address_id",
+                        "in": "formData",
+                        "description": "Address ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/pos/user/getAllUser": {
+            "post": {
+                "tags": [
+                    "pos"
+                ],
+                "summary": "Get All user in school, only for cashier user only",
+                "description": "Get All user in school, only for cashier user only",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "search",
+                        "in": "formData",
+                        "description": "Search query (based on fullname or nisn only)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "formData",
+                        "description": "Offset to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "formData",
+                        "description": "Limit to query (used for pagination)",
+                        "required": false,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Data"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/user/checkPassword": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Check Password for user",
+                "description": "-",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User Access Token (eg: Bearer [user token])",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "user password to be validate",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User data and token"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
