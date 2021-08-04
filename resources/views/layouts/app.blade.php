@@ -254,7 +254,7 @@
 								@endif
 					
 								@if(\Sentinel::getUser()->hasAccess('report.absensi'))
-									<li class="{{(isset($_SESSION['menu']) ? ($_SESSION['menu'] == "report.absen" ? "active" : "") : "")}}">
+									<li class="{{(isset($_SESSION['menu']) ? ($_SESSION['menu'] == "report.absensi" ? "active" : "") : "")}}">
 										<a href="{{route('report.absensi')}}"><i class="icon-calendar2"></i> <span>Report Absensi</span></a>
 									</li>
 								@endif

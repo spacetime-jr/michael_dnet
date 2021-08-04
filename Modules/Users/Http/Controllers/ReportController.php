@@ -82,7 +82,7 @@ class ReportController extends Controller
 
     public function reportAbsensi(Request $request){
         if (\Sentinel::getUser()->hasAccess('user.create')) {
-            
+            $_SESSION['menu'] = 'report.absensi';
             $monthYear = null;
 
             if(!empty($request->monthYear)){
