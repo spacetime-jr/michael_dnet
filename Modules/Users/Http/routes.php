@@ -30,13 +30,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
         Route::get('ijin/ajaxListIjin', 'IjinController@ajaxListIjin')->name('ijin.listIjin');
         Route::get('absensi/checkout', 'AbsensiController@checkout')->name('absensi.checkout');
         
-        // Approval
-        Route::get('technician/ajaxListApprovalTechnician', 'ApprovalController@ajaxListApprovalTechnician')->name('technician.listApprovalTechnician');
-        Route::get('technician/approval', 'ApprovalController@index')->name('technician.approval.index');
-        Route::get('technician/approval/{id}', 'ApprovalController@approve')->name('technician.approval');
-
-        Route::post('technician/editBalance', 'TechnicianController@editBalance')->name('technician.editBalance');
-
+    
         Route::resource('users', 'UsersController');
         Route::resource('hr', 'HRController');
         Route::resource('employee', 'EmployeeController');
